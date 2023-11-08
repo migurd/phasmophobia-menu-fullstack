@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="../../css/user/user_shop.css"> -->
+  <link rel="icon" type="image/x-icon" href="../../img/logo.jfif">
+  <link rel="stylesheet" href="../../css/user/user_shop2.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+  <title>User Shop</title>
+</head>
+<body>
+  
+  <div class="background">
+    <div class="container">
+      <span class="pin red-pin" style="cursor: pointer;" onclick="window.location.href = './user_menu.html'"></span>
+      <div class="card section">
+        <div class="card-header">
+          <button type="button" class="btnShop">SHOP/STORAGE</button>
+          <button type="button" class="btnEquipment">EQUIPMENT</button>
+        </div>
+        <div class="card-body scrollable-container">
+            <p class="section-title">MAIN EQUIPMENT</p>
+          <div class="section-items">
+            <!-- ITEMS, it should have a scroll effect if theres too many items -->
+          </div>
+        </div>
+        <div class="card-footer btnsSectionEquipment">
+          <button type="button" class="btnAll">ALL</button>
+          <button type="button" class="btnClear">CLEAR</button>
+        </div>
+        <div class="card-footer btnsSectionShop disabled">
+          <button type="button" class="btnAddOne">ADD 1 OF EACH</button>
+          <button type="button" class="btnAddTen">ADD 10 OF EACH</button>
+        </div>
+      </div>
+  
+      <!-- ASIDE  -->
+      <aside class="card aside-shop disabled">
+        <div class="card-header">
+          <h2 class="txtUserMoney">$0</h2>
+        </div>
+        <div class="card-body scrollable-container">
+          <table class="table">
+            <thead>
+              <th>QTY</th>
+              <th>ITEM</th>
+              <th>PRICE</th>
+            </thead>
+            <tbody class="aside-shop-items">
+              <!-- LIST OF ITEMS IG -->
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer btnsAsideShop">
+          <button type="button" class="btnClean">CLEAN</button>
+          <button type="button" class="btnBuy" disabled value=0>BUY: $0</button>
+          <button type="button" class="btnSell" disabled value=0>SELL: $0</button>
+        </div>
+      </aside>
+  
+      <aside class="card aside-equipment">
+        <div class="card-header">
+          <h2 class="txtUserMoney">$0</h2>
+        </div>
+        <div class="card-body scrollable-container">
+          <table class="table">
+            <thead>
+              <th>ITEM</th>
+              <th>QTY</th>
+            </thead>
+            <tbody class="aside-equipment-items">
+              <!-- LIST OF ITEMS IG -->
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer btnsAsideEquipment">
+          <button type="button" class="btnGoBack" onclick="window.location.href = './user_menu.html'">GO BACK</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/user/shop.js"></script>
+</body>
+</html>

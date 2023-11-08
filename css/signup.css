@@ -1,0 +1,24 @@
+.card {
+  height: 750px;
+}
+.menu-pfp {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  margin-bottom: 10px;
+  height: 150px;
+}
+.menu-link {
+  display: grid;
+  grid-template-rows: 50px 30px;
+}
+.menu-link input {
+  padding: 5px;
+  font-size: 14px;
+}
+#btnPostFile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}

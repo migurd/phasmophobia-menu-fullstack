@@ -1,0 +1,290 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 6px;
+}
+
+:root {
+  --clear-green: #B8D3D6;
+  --green: #9BB2B1;
+  --orange: #FEB43E;
+  --bg-grey: #161D1D;
+  --big-grey: #8A989A;
+  --small-grey: #3A4443;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  cursor: pointer;
+  padding-block: 0;
+  padding-inline: 0;
+  border: none;
+  border-width: 0;
+  border-style: none;
+  border-color: transparent;
+}
+button:hover {
+  filter: brightness(0.9);
+}
+button:disabled {
+  cursor: auto;
+}
+
+.background {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../img/decoration/phasmophobia_bg-board-loop.png');
+  width: 100vw;
+  overflow: auto;
+  height: 100vh;
+}
+
+.container {
+  min-width: 800px;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  width: 90vw;
+  height: 90vh;
+  background-color: var(--green);
+  border: inset 25px black;
+}
+
+.card.section,
+aside {
+  margin: 5px 0px 5px 5px;
+  display: flex;
+  flex-direction: column;
+}
+.section .card-header,
+.card-footer.btnsSectionEquipment,
+.card-footer.btnsSectionShop {
+  gap: 4px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: black;
+  border: 5px solid black;
+  border-bottom: 2px solid var(--green);
+}
+.card-header button {
+  height: 100%;
+  font-size: larger;
+  cursor: pointer;
+  border-bottom: 5px solid black;
+}
+.card-header button:hover {
+  filter: brightness(.9);
+}
+.btnEquipment {
+  background-color: var(--orange);
+}
+.btnShop {
+  background-color: var(--clear-green);
+}
+.card-header,
+.card-footer {
+  height: 60px;
+}
+
+.card.section .card-body {
+  padding: 10px;
+  min-height: calc(100% - 60px - 60px);
+  background-color: var(--bg-grey);
+  background-image: url('../../img/decoration/grid-pattern.png');
+}
+.section-title {
+  color: var(--big-grey);
+}
+.section-items {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.item {
+  width: 125px;
+  height: 140px;
+  border: 3px solid var(--big-grey);
+}
+.item_header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0px 10px;
+  height: 30px;
+  width: 100%; 
+  color: var(--green);
+  border-bottom: 3px solid var(--green);
+}
+.item_header > .amount_items:first-child {
+  border-right: 3px solid var(--green);
+}
+.item_header > * {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item > * {
+  background-color: var(--bg-grey);
+}
+.item_body {
+  height: var(125px - 30px - 20px);
+  width: 100%;
+}
+.item img {
+  width: 100%;
+  height: calc(125px - 30px - 20px);
+  object-fit: contain;
+}
+.item_footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.item_footer button {
+  font-size: 30px;
+  line-height: 1.6rem;
+  background-color: var(--green);
+}
+.item_footer button:disabled {
+  filter: brightness(0.5);
+}
+
+.card-footer.btnsSectionEquipment,
+.card-footer.btnsSectionShop {
+  background-color: black;
+  border: 5px solid black;
+  border-top: 2px solid var(--green);
+  border-bottom: 0px;
+}
+.card-footer.btnsSectionEquipment button,
+.card-footer.btnsSectionShop button {
+  height: 100%;
+  font-size: larger;
+  cursor: pointer;
+}
+
+/* ASIDE */
+.card.aside-shop, .card.aside-equipment {
+  margin: 5px 5px 5px 5px;
+  background-color: var(--bg-grey);
+  color: var(--big-grey);
+}
+
+.card.aside-shop, .card.aside-equipment th {
+  color: var(--big-grey);
+}
+.card.aside-shop .card-header,
+.card.aside-equipment .card-header {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  font-size: 22px;
+  color: var(--big-grey);
+  border-bottom: 2px solid var(--green);
+}
+.card.aside-shop .card-body th,
+.card.aside-equipment .card-body th {
+  font-size: 18px;
+}
+.card.aside-shop .card-body,
+.card.aside-equipment .card-body {
+  padding: 20px;
+  text-align: left;
+}
+.aside-equipment .card-body {
+  min-height: calc(100% - 60px - 60px);
+}
+.aside-shop .card-body {
+  min-height: calc(100% - 60px - 120px);
+}
+.aside-equipment .table tr {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  line-height: 2rem;
+}
+.card.aside-equipment .card-body {
+  height: calc(100% - 60px - 60px);
+}
+.card-footer.btnsAsideEquipment button {
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  border: 5px solid var(--green);
+}
+.aside-shop .card-body {
+  height: calc(100% - 60px - 120px);
+}
+
+.table tr {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  line-height: 2rem;
+}
+.table,
+.aside-shop-items {
+  width: 100%;
+}
+.btnClean,.btnBuy,.btnSell {
+  border: 3px solid black;
+  font-size: 20px;
+}
+.btnClean {
+  grid-area: btnClean;
+}
+.btnBuy {
+  grid-area: btnBuy;
+}
+.btnSell {
+  grid-area: btnSell;
+}
+.card-footer.btnsAsideShop {
+  display: grid;
+  height: 120px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "btnClean btnClean"
+                       "btnBuy btnSell";
+}
+
+.pin {
+  position: absolute;
+  bottom: -22px;
+  right: -15px;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  border: outset;
+}
+.red-pin {
+  background-color: red;
+}
+
+.disabled {
+  display: none !important;
+}
+.scrollable-container {
+  overflow-y: auto;
+}
+.section-items,
+.card.aside-equipment .card-body {
+  max-height: 100px !important;
+}
+.aside-shop .card-body {
+  max-height: 100px;
+}
+
+

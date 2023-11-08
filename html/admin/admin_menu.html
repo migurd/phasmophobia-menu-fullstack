@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../../img/logo.jfif">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/btns.css">
+  <link rel="stylesheet" href="../../css/frame.css">
+  <link rel="stylesheet" href="../../css/admin/admin_base.css">
+  <title>Admin Menu</title>
+</head>
+<body>
+
+  <div class="background inactive">
+    <div class="missions">
+      <span class="lines"></span>
+      <span class="pin red-pin"></span>
+      <span class="pin blue-pin"></span>
+
+      <div class="missions-container">
+        <section class="dailies">
+          <div style="display: flex; align-items: center; gap: 20px;">
+            <button class="btn btnClose">X</button>
+            <h2>Daily Challenges</h2>
+          </div>
+          <div class="dailies-container">
+            <article class="daily">
+              <input type="text" class="description" value="Take a ghost photo">
+              <input type="number" class="amount" value="1" />
+            </article>
+            <article class="daily">
+              <input type="text" class="description" value="Earn $500">
+              <input type="number" class="amount" value="500" />
+            </article>
+            <article class="daily">
+              <input type="text" class="description" value="Successfully identify 3 ghosts">
+              <input type="number" class="amount" value="3" />
+            </article>
+          </div>
+        </section>
+  
+        <section class="weeklies">
+          <h2>Weekly Challenges</h2>
+          <div class="weeklies-container">
+            <article class="weekly">
+              <input type="text" class="description" value="Earn Maximum rewards from a single contract">
+              <input type="number" class="amount" value="1" />
+            </article>
+            <article class="weekly">
+              <input type="text" class="description" value="Find 10 bones">
+              <input type="number" class="amount" value="10" />
+            </article>
+            <article class="weekly">
+              <input type="text" class="description" value="Escape 20 hunts">
+              <input type="number" class="amount" value="20" />
+            </article>
+          </div>
+        </section>
+      </div>
+      <li class="btn btn4 btnAccept"><a>Accept</a></li>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="frame">
+      <span class="top-left"></span>
+      <span class="top-center"></span>
+      <span class="top-right"></span>
+      <span class="mid-left"></span>
+      <span class="mid-right"></span>
+      <span class="bottom-left"></span>
+      <span class="bottom-center"></span>
+      <span class="bottom-right"></span>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <P>ADMIN</P>
+      </div>
+      <div class="card-body">
+        <div class="pfp">
+          <div class="pfp-container">
+            <img class="pfp-img" src="../../img/pfp.jpg" alt="User's PFP">
+          </div>
+        </div>
+        <section class="user-info">
+          <article class="user-field">
+            <p class="field">EMAIL</p>
+            <p class="user-email">##########################</p>
+          </article>
+          <article class="user-field">
+            <p class="field">FUNDS</p>
+            <p class="user-money">$00000</p>
+          </article>
+          <article class="user-field">
+            <p class="field">LEVEL</p>
+            <p class="user-level">1</p>
+          </article>
+        </section>
+      </div>
+    </div>
+
+    <div class="missions">
+      <span class="lines"></span>
+      <span class="pin red-pin"></span>
+      <span class="pin blue-pin"></span>
+
+      <div class="missions-container">
+        <section class="dailies">
+          <h2>Daily Challenges</h2>
+          <div class="dailies-container">
+            <article class="daily">
+              <p class="description">Take a ghost photo</p>
+              <p class="amount">0/1</p>
+            </article>
+            <article class="daily">
+              <p class="description">Earn $500</p>
+              <p class="amount">0/500</p>
+            </article>
+            <article class="daily">
+              <p class="description">Successfully identify 3 ghosts</p>
+              <p class="amount">0/3</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="weeklies">
+          <h2>Weekly Challenges</h2>
+          <div class="weeklies-container">
+            <article class="weekly">
+              <p class="description">Earn Maximum rewards from a single contract</p>
+              <p class="amount">0/1</p>
+            </article>
+            <article class="weekly">
+              <p class="description">Find 10 bones</p>
+              <p class="amount">0/10</p>
+            </article>
+            <article class="weekly">
+              <p class="description">Escape 20 hunts</p>
+              <p class="amount">0/20</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+      
+
+    <h2 class="phasmo_title"></h2>
+    <ul class="btns-container">
+      <li class="btn btn1 btnSingleplayer" onclick="window.location.href='./items_create.html'"><a>Create Item</a></li>
+      <li class="btn btn2" onclick="window.location.href='./items_read.html'"><a>Read Items</a></li>
+      <li class="btn btn5" onclick="window.location.href='./items_update.html'"><a>Update Items</a></li>
+      <li class="btn btn4" onclick="window.location.href='./money_update.html'"><a>Update Money</a></li>
+      <li class="btn btn3 btnSignOut"><a>Sign out</a></li>
+    </ul>
+  </div>
+
+  <script type="module" src="../../js/isLoggedIn.js"></script>
+  <script type="module" src="../../js/loadCard.js"></script>
+  <script type="module" src="../../js/admin/admin_menu.js"></script>
+  <script type="module" src="../../js/signOut.js"></script>
+</body>
+</html>

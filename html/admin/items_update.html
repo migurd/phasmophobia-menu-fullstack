@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../../img/logo.jfif">
+  <link rel="stylesheet" href="../../css/admin/items_update.css">
+  <link rel="stylesheet" href="../../css/bg.css">
+  <link rel="stylesheet" href="../../css/btns.css">
+  <link rel="stylesheet" href="../../css/form.css">
+  <link rel="stylesheet" href="../../css/frame.css">
+  <link rel="stylesheet" href="../../css/admin/items_create.css">
+  <link rel="stylesheet" href="../../css/admin/items_read.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+  <title>Update Items</title>
+</head>
+<body>
+  
+  <div class="background inactive">
+    <div class="card editItemCard inactive">
+      <span class="lines"></span>
+      <span class="pin red-pin"></span>
+      <span class="pin blue-pin"></span>
+      <div class="card-header">
+        <button class="btnClose btn btn-secondary">X</button>
+        <h2 class="txtTitle">Update Item</h2>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-options">
+            <div class="mb-3">
+              <label for="txtName" class="form-label">Name</label>
+              <input type="text" class="form-control" id="txtName" required>
+            </div>
+            <div class="mb-4">
+              <label for="txtDescription" class="form-label">Description</label>
+              <textarea type="text" class="form-control" id="txtDescription" required></textarea>
+            </div>
+            <div class="mb-4">
+              <label for="txtPrice" class="form-label">Price</label>
+              <input type="number" class="form-control" id="txtPrice" required>
+            </div>
+            <div class="mb-4">
+              <label for="cbTier">Select a Tier:</label>
+              <select id="cbTier">
+                  <option value="1">Tier 1</option>
+                  <option value="2">Tier 2</option>
+                  <option value="3">Tier 3</option>
+              </select>
+            </div>
+          </div>
+          <div id="menu">
+            <p>Seleccionar el archivo a subir</p>
+            <div class="menu-pfp">
+              <img style="width: 100px; height: 100px; object-fit: contain; margin: 10px;" class="postImage" src="../../img/items.jpg" alt="Imagen a insertar">
+              <div class="menu-link">
+                <p style="margin-bottom: 0px;">URL de la imagen seleccionada</p>
+                <input type="text">
+              </div>
+            </div>
+            <input type="file" name="btnPostFile" id="btnPostFile" accept=".jpg, .jpeg, .png">
+          </div>
+        </form>
+        <div class="btnsUpdate">
+          <li class="btn btn1 btnUpdate"><a>Update</a></li>
+          <li class="btn btn1 btnActivate"><a>Activate</a></li>
+          <li class="btn btn2 btnDeactivate"><a>Deactivate</a></li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="frame">
+      <span class="top-left"></span>
+      <span class="top-center"></span>
+      <span class="top-right"></span>
+      <span class="mid-left"></span>
+      <span class="mid-right"></span>
+      <span class="bottom-left"></span>
+      <span class="bottom-center"></span>
+      <span class="bottom-right"></span>
+    </div>
+    <div class="card itemCard">
+      <span class="lines"></span>
+      <span class="pin red-pin"></span>
+      <span class="pin blue-pin"></span>
+      <div class="card-container">
+        <div class="card-header" style="display: flex; justify-content: space-between;">
+          <button class="btn btn-secondary" onclick="window.location.href='./admin_menu.html'">X</button>
+          <h2>Update Items</h2>
+        </div>
+        <div class="card-body">
+          <div class="scrollable-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Image</th>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Tier</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody class="table_content">
+                <!-- DATA WILL GO HERE -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/isLoggedIn.js"></script>
+  <script type="module" src="../../js/admin/update_item.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.466);
+  border-radius: 6px;
+}
+
+.card {
+  width: 1000px;
+}
+
+.table_content {
+  border-collapse: collapse;
+  width: 100%;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.table_content td {
+  padding: 25px;
+  
+}
+
+.table_content td:nth-child(5) {
+  max-width: 300px;
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  /* ubuntu check later overflow */
+}
+
+.card-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: left !important;
+  height: 100px;
+  width: 90%;
+  background-color: rgba(0,0,0,0.00);
+}
+.card-header button {
+  display: grid;
+  align-items: center;
+  color: black;
+  font-size: 20px;
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  border-radius: 100%;
+}
+.scrollable-container {
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+@media screen and (max-width: 1100px) {
+  .container .card-header {
+    margin-left: 100px;
+  }
+  .container .card {
+    width: 350px;
+    height: 500px;
+  }
+  tr > * {
+    padding: 10px;
+    text-align: center;
+  }
+  th:nth-child(2),
+  th:nth-child(4),
+  th:nth-child(5),
+  th:nth-child(6),
+  th:nth-child(7),
+  th:nth-child(8) {
+    display: none;
+  }
+  tr > td:nth-child(2),
+  tr > td:nth-child(4),
+  tr > td:nth-child(5),
+  tr > td:nth-child(6),
+  tr > td:nth-child(7),
+  tr > td:nth-child(8) {
+    display: none;
+  }
+
+  .background .card {
+    height: 500px !important;
+  }
+  .background .card-body,
+  .background .card-container {
+    overflow-x: auto;
+    max-height: 400px;
+  }
+  .background .card-header {
+    position:relative;
+  }
+  .background .card-body {
+    height: 500px;
+  }
+  form {
+    margin-top: 0px;
+  }
+
+}

@@ -1,0 +1,102 @@
+.table {
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+}
+.table_content tr:hover {
+  background-color: #e3e3e3;
+  cursor: pointer;
+}
+
+.background .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+  position: absolute;
+  z-index: 10;
+}
+
+/* YOU HAVE NO IDEA HOW MANY HOURS I WENT THROUGH THIS DISGUSSTING CSS SHEET */
+.editItemCard {
+  top: calc(50% - 400px);
+  left: calc(50% - 200px);
+  width: 400px !important;
+  height: 800px !important;
+  z-index: 100;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.266);
+  opacity: 100%;
+  scale: 100%;
+  transition: all 0.2s;
+}
+
+.editUserCard {
+  position: relative;
+  top: calc(50% - 250px);
+  left: calc(50% - 200px);
+  width: 400px !important;
+  height: 500px !important;
+  z-index: 100;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.266);
+  opacity: 100%;
+  scale: 100%;
+  transition: all 0.2s;
+}
+.scrollable-container {
+  max-height: 600px;
+}
+.card.itemCard.inactive {
+  display: none !important;
+}
+
+.inactive {
+  opacity: 0%;
+  scale: 80%;
+}
+
+.background 
+{
+  left: 0;
+  top: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.300);
+  opacity: 100%;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  transition: all 0.2s;
+}
+
+.background.inactive {
+  opacity: 0%;
+  scale: 100%;
+  z-index: -1;
+}
+
+.disabled {
+  background-color: rgb(255, 228, 228);
+}
+
+.background > .card {
+  height: 700px !important;
+}
+form {
+  margin-top: 80px;
+  height: 425px !important;
+}
+
+.btnsUpdate {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 260px;
+  height: 180px;
+  margin: 0 auto;
+}
+
+.btnsUpdate.btn {
+  height: 50px !important;
+  width: 100px !important;
+  margin: 0 auto;
+}
+
+.card {
+}

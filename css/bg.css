@@ -1,0 +1,7 @@
+.container {
+  background-image: url('../img/decoration/phasmophobia_bg-board-loop.png');
+  min-height: 100vh;
+  min-width: 100vw;
+  object-fit: cover;
+  background-repeat: repeat;
+}

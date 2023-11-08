@@ -1,0 +1,58 @@
+.disabled {
+  display: none !important;
+}
+
+.small {
+  font-size: 10px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  height: 100vh;
+}
+
+.card {
+  height: 80% !important;
+  display: flex;
+  flex-direction: column;
+}
+.section {
+  width: 70%;
+}
+.aside {
+  width: 30%;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 200px;
+  width: 150px;
+  border: 1px solid black;
+}
+
+.item_header,.item_footer {
+  display: flex;
+  gap: 10px;
+}
+.item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.card-body.scrollable-container {
+  /* Set a fixed height for the container to enable scrolling */
+  overflow-y: scroll; /* Enable vertical scrolling when content overflows */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  align-content: flex-start;
+}

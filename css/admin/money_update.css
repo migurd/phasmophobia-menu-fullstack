@@ -1,0 +1,68 @@
+
+.background .card {
+  height: 500px !important;
+}
+.background .card-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.background form {
+  display: grid;
+  grid-template-rows: repeat(3, 80px);
+  font-size: 20px;
+  height: 300px !important;
+}
+.background form > * {
+  display: flex;
+  flex-direction: column;
+}
+.background label {
+  margin-bottom: 10px;
+}
+.background form input {
+  height: 40px;
+  font-size: 20px;
+  background-color: transparent;
+  padding: 10px;
+}
+
+.btn.btnAddMoney {
+  width: 90% !important;
+}
+
+@media screen and (max-width: 1100px) {
+  th:nth-child(3) {
+    display: none;
+  }
+  tr > td:nth-child(3) {
+    display: none;
+  }
+  th:nth-child(2) {
+    display: grid;
+  }
+  tr > td:nth-child(2) {
+    display: grid;
+  }
+  .card.itemCard {
+    width: 500px;
+  }
+  .card-header {
+    margin-left: 10px !important;
+  }
+  .card-container .card-body {
+    max-height: 100px !important;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .scrollable-container {
+    max-height: 300px;
+    display: grid;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .card.itemCard {
+    width: 300px;
+  } 
+}

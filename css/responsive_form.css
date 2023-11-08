@@ -1,0 +1,16 @@
+@media screen and (max-height: 700px) {
+  .card {
+    height: 500px !important;
+  }
+  .card-body,
+  .card-container {
+    overflow-x: auto;
+    max-height: 500px;
+  }
+  .card-header {
+    height: 50px;
+  }
+  .card-body {
+    height: 500px;
+  }
+}

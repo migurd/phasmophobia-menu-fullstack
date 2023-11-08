@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 600px;
+  background-color: white;
+}
+.card > * {
+  position: absolute;
+  z-index: 1;
+}
+
+.card-container {
+  position: absolute;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - 50px);
+  align-items: center;
+  font-size: 20px;
+}
+form {
+  padding: 30px;
+  padding-top: 20px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  height: 320px;
+  gap: 10px;
+}
+form .mb-3 > label {
+  margin-bottom: 5px;
+}
+form .mb-3 > input {
+  max-height: 40px;
+  font-size: 18px;
+  padding: 10px;
+  background-color: transparent;
+}
+form .mb-3:not(:last-child) {
+  display: grid;
+  grid-template-rows: 30% 70%;
+}
+form .mb-3 button {
+  height: 100%;
+  width: 100%;
+}
+
+.card .lines {
+  position: absolute;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background: repeating-linear-gradient(0deg, transparent, transparent 14px, #D4D5E8 14px, #D4D5E8 15px);
+  z-index: 0;
+}
+.btn.btn1,
+.btn.btn2,
+.btn.btn3,
+.btn.btn4,
+.btn.btn5,
+.btn.btn6 {
+  margin-left: 0px;
+  text-align: center;
+  height: 80px;
+  width: 100% !important;
+}
+.signUpHelp {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+  gap: 20px;
+}
+
+.pin {
+  top: 10px;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  border: outset;
+}
+.red-pin {
+  background-color: red;
+  left: 10px;
+}
+.blue-pin {
+  background-color: #3864c2;
+  right: 10px;
+}

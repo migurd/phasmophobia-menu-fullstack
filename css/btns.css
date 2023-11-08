@@ -1,0 +1,73 @@
+.btns-container {
+  position: absolute;
+  top: 55%;
+  left: 100px;
+  transform: translateY(-50%);
+  width: 450px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.btn {
+  gap: 20px;
+  color: white;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  object-fit: contain;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.btn:hover {
+    filter: brightness(0.9); /* Darken the image when hovering */
+}
+a {
+  margin-left: 45px;
+  color: black !important;
+  text-decoration: none;
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+.btn1 {
+  background-image: url('../img/decoration/btn1.png');
+}
+.btn2 {
+  background-image: url('../img/decoration/btn2.png');
+}
+.btn3 {
+  background-image: url('../img/decoration/btn3.png');
+}
+.btn4 {
+  background-image: url('../img/decoration/btn4.png');
+}
+.btn5 {
+  background-image: url('../img/decoration/btn5.png');
+}
+.btn6 {
+  background-image: url('../img/decoration/btn6.png');
+}
+
+@media screen and (max-height: 800px) {
+  .btns-container {
+    margin-top: 10px;
+    width: 350px;
+  }
+  .btn {
+    gap: 15px;
+    height: 75px; 
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .btns-container {
+    margin-top: 30px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

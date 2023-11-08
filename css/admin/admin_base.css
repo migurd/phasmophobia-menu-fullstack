@@ -1,0 +1,121 @@
+.missions:hover {
+  cursor: pointer;
+  filter: brightness(0.9);
+}
+.background .missions:hover {
+  filter: brightness(1);
+  cursor: auto;
+}
+
+.table {
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+}
+.table_content tr:hover {
+  background-color: #e3e3e3;
+  cursor: pointer;
+}
+
+.background .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+  position: absolute;
+  z-index: 10;
+}
+
+/* YOU HAVE NO IDEA HOW MANY HOURS I WENT THROUGH THIS DISGUSSTING CSS SHEET */
+.background .missions {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px !important;
+  height: 650px !important;
+  z-index: 100;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.266);
+  opacity: 100%;
+  scale: 100%;
+  transition: all 0.2s;
+  rotate: 0deg;
+}
+.background .missions input {
+  height: 35px;
+  font-size: 12px;
+  padding: 2px;
+}
+
+.card.itemCard.inactive {
+  display: none !important;
+}
+
+.background .missions.inactive {
+  opacity: 0;
+  scale: 80%;
+}
+
+.inactive {
+  opacity: 0%;
+  scale: 80%;
+}
+
+.background 
+{
+  left: 0;
+  top: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.300);
+  opacity: 100%;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  transition: all 0.2s;
+}
+
+.background.inactive {
+  opacity: 0%;
+  scale: 100%;
+  z-index: -1;
+}
+
+.disabled {
+  background-color: rgb(255, 228, 228);
+}
+.background .dailies,
+.background .weeklies {
+  height: 225px;
+}
+
+.btnsUpdate {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 260px;
+  height: 180px;
+  margin: 0 auto;
+}
+
+.btnsUpdate.btn {
+  height: 50px !important;
+  width: 100px !important;
+  margin: 0 auto;
+}
+
+.btnClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  font-size: 30px;
+  color: black;
+  border-radius: 100%;
+}
+
+.btnAccept {
+  position: absolute;
+  bottom: 20px;
+  width: 90%;
+  margin: 0px 20px;
+}

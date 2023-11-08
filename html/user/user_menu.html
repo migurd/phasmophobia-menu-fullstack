@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../../img/logo.jfif">
+  <link rel="stylesheet" href="../../css/btns.css">
+  <link rel="stylesheet" href="../../css/frame.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/admin/admin_base.css">
+  <link rel="stylesheet" href="../../css/user/user_menu.css">
+  <title>User Menu</title>
+</head>
+<body>
+  
+  <div class="background inactive">
+    <div class="game inactive">
+      <span class="lines"></span>
+      <span class="pin red-pin"></span>
+      <span class="pin blue-pin"></span>
+
+      <div class="game-container">
+        <div class="guess-the-ghost">
+          <h2>Guess the Ghost</h2>
+          <p>Be careful, you could die if you guess it wrong!</p>
+          <div class="guesses">
+            <div class="guess" value="1">Demon</div>
+            <div class="guess" value="2">Shade</div>
+            <div class="guess" value="3">Revenant</div>
+            <div class="guess" value="4">Spirit</div>
+          </div>
+        </div>
+        <div class="btns-container">
+          <li class="btn btn4 btnPlay"><a style="margin-left: 60px;">Play</a></li>
+        <li class="btn btn4 btnClose"><a style="margin-left: 60px;">Close</a></li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="frame">
+      <span class="top-left"></span>
+      <span class="top-center"></span>
+      <span class="top-right"></span>
+      <span class="mid-left"></span>
+      <span class="mid-right"></span>
+      <span class="bottom-left"></span>
+      <span class="bottom-center"></span>
+      <span class="bottom-right"></span>
+    </div>
+
+    <div class="missions">
+      <span class="lines"></span>
+      <span class="pin red-pin"></span>
+      <span class="pin blue-pin"></span>
+
+      <div class="missions-container">
+        <section class="dailies">
+          <h2>Daily Challenges</h2>
+          <div class="dailies-container">
+            <article class="daily">
+              <p class="description">Take a ghost photo</p>
+              <p class="amount">0/1</p>
+            </article>
+            <article class="daily">
+              <p class="description">Earn $500</p>
+              <p class="amount">0/500</p>
+            </article>
+            <article class="daily">
+              <p class="description">Successfully identify 3 ghosts</p>
+              <p class="amount">0/3</p>
+            </article>
+          </div>
+        </section>
+  
+        <section class="weeklies">
+          <h2>Weekly Challenges</h2>
+          <div class="weeklies-container">
+            <article class="weekly">
+              <p class="description">Earn Maximum rewards from a single contract</p>
+              <p class="amount">0/1</p>
+            </article>
+            <article class="weekly">
+              <p class="description">Find 10 bones</p>
+              <p class="amount">0/10</p>
+            </article>
+            <article class="weekly">
+              <p class="description">Escape 20 hunts</p>
+              <p class="amount">0/20</p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <P>USER</P>
+      </div>
+      <div class="card-body">
+        <div class="pfp">
+          <div class="pfp-container">
+            <img class="pfp-img" src="../../img/pfp.jpg" alt="User's PFP">
+          </div>
+        </div>
+        <section class="user-info">
+          <article class="user-field">
+            <p class="field">EMAIL</p>
+            <p class="user-email">##########################</p>
+          </article>
+          <article class="user-field">
+            <p class="field">FUNDS</p>
+            <p class="user-money">$00000</p>
+          </article>
+          <article class="user-field">
+            <p class="field">LEVEL</p>
+            <p class="user-level">1</p>
+          </article>
+        </section>
+      </div>
+    </div>
+
+    <h2 class="phasmo_title"></h2>
+    <ul class="btns-container">
+      <li class="btn btn1 btnSingleplayer"><a href="#">Singleplayer</a></li>
+      <li class="btn btn2"><a href="#">Multiplayer</a></li>
+      <li class="btn btn3" onclick="window.location.href = './user_shop.html'"><a>Shop</a></li>
+      <li class="btn btn4"><a href="#">Options</a></li>
+      <li class="btn btn5 btnSignOut"><a>Sign out</a></li>
+    </ul>
+  </div>
+
+  <script type="module" src="../../js/isLoggedIn.js"></script>
+  <script type="module" src="../../js/user/user_menu.js"></script>
+  <script type="module" src="../../js/loadCard.js"></script>
+  <script type="module" src="../../js/signOut.js"></script>
+  <script type="module" src="../../js/user/loadInChallenges.js"></script>
+</body>
+</html>

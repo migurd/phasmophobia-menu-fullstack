@@ -1,0 +1,104 @@
+/* BORDER */
+
+:root {
+  --frame-size: 300px;
+  --frame-thickness: 50px;
+}
+
+.frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+.top-left,.top-center,.top-right,
+.mid-left, .mid-right,
+.bottom-left,.bottom-center,.bottom-right {
+  position: absolute;
+  display: inline-block;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 10;
+  filter: brightness(1.4);
+}
+.top-left {
+  background-image: url('../img/decoration/frame-top-left.png');
+  top: 0;
+  left: 0;
+  width: var(--frame-size);
+  height: var(--frame-size);
+}
+.top-center {
+  background-image: url('../img/decoration/frame-top-center.png');
+  top: 2px;
+  left: 0;
+  width: 100%;
+  height: var(--frame-thickness);
+  background-position-y: top;
+  background-repeat: repeat-x;
+  z-index: 9;
+  border: outset black;
+}
+.top-right {
+  background-image: url('../img/decoration/frame-top-right.png');
+  top: 0;
+  right: 0;
+  width: var(--frame-size);
+  height: var(--frame-size);
+  background-position-x: right;
+  border-top: outset black;
+}
+.mid-left {
+  background-image: url('../img/decoration/frame-mid-left.png');
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(var(--frame-thickness) - 8px);
+  height: 100%;
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-position-x: left;
+  z-index: 9;
+}
+.mid-right {
+  background-image: url('../img/decoration/frame-mid-right.png');
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: calc(var(--frame-thickness) - 8px);
+  height: 100%;
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-position-x: right;
+  z-index: 9;
+}
+.bottom-left {
+  background-image: url('../img/decoration/frame-bottom-left.png');
+  bottom: 0;
+  left: 0;
+  width: var(--frame-size);
+  height: var(--frame-size);
+  background-position-y: bottom;
+}
+.bottom-center {
+  background-image: url('../img/decoration/frame-bottom-center.png');
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(var(--frame-thickness) - 4px);
+  background-position-y: top;
+  background-repeat: repeat-x;
+  z-index: 9;
+}
+.bottom-right {
+  background-image: url('../img/decoration/frame-bottom-right.png');
+  bottom: 0;
+  right: 0;
+  width: calc(var(--frame-size) - 20px);
+  height: var(--frame-size);
+  background-position-y: bottom;
+}
