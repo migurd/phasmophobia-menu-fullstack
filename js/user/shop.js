@@ -200,16 +200,20 @@ inventory.forEach(item => {
     
     currQty.innerHTML = Number(currQty.innerHTML) - 1;
     btnPlus.disabled = false;
-    
+    // console.log("ola");
     // itemCart is updated
     // if its empty or its not found, we push
+    // console.log(Number(currQty.innerHTML));
     if(Number(currQty.innerHTML) > 0) {
       // console.log(itemCart.findIndex(e => Number(e.id) === Number(item.id)));
-      // console.log(itemCart);
       itemCart[itemCart.findIndex(e => Number(e.id) === Number(item.id))].quantity = Number(currQty.innerHTML);
+      // console.log(itemCart);
+      // console.log(itemCart[itemCart.findIndex(e => Number(e.id) === Number(item.id))].quantity);
+      // debugger;
     }
-    else
+    else {
       itemCart.splice(itemCart.findIndex(e => Number(e.id) === Number(item.id)), 1);
+    }
 
     // we deactivate the btns buy and sell
     if(itemCart.length === 0) {
@@ -380,7 +384,6 @@ btnBuy.addEventListener('click', async() => {
   else{
     let currMoney = user.money - totalCart;
     await updateUser(user, true, currMoney, itemCart);
-    
     // we dont need to update, the page, since we gonna do it dynamic
     // we update the money
     txtMoney.forEach((txt) => {
@@ -596,11 +599,16 @@ const btnAddTen = document.querySelector('.btnAddTen');
 
 btnAddOne.addEventListener('click', () => {
   itemsCollection.forEach((item) => {
-    // Check if an item with the same ID already exists in debugger
-    const existingItem = itemCart.find((cartItem) => Number(cartItem.id) === item._document.data.value.mapValue.fields.id.integerValue);
-    const currId = item._document.data.value.mapValue.fields.id.integerValue; 
-
-    if (!existingItem) {
+    // Check if an item with the same ID already exists in itemCart
+    const currId = item._document.data.value.mapValue.fields.id.integerValue;
+    // console.log(item);
+    
+    // Use findIndex to check if the item with the same ID exists in itemCart
+    const existingItemIndex = itemCart.findIndex((e) => Number(e.id) === Number(currId));
+    // console.log(itemCart);
+    // console.log(existingItemIndex);
+    
+    if (existingItemIndex === -1) {
       // If the item with the same ID doesn't exist in itemCart, add it
       itemCart.push({
         id: currId,
@@ -608,8 +616,8 @@ btnAddOne.addEventListener('click', () => {
         qty_loadout: 0,
       });
     } else {
-      // If the item with the same ID already exists, you can update the quantity, for example:
-      existingItem.quantity += 1;
+      // If the item with the same ID already exists, you can update the quantity
+      itemCart[existingItemIndex].quantity += 1;
     }
     const ran = document.querySelector(`[qty_id="${currId}"]`);
     const idk = document.querySelector(`[item_qty="${currId}"]`);
@@ -638,10 +646,10 @@ btnAddOne.addEventListener('click', () => {
 btnAddTen.addEventListener('click', () => {
   itemsCollection.forEach((item) => {
     // Check if an item with the same ID already exists in itemCart
-    const existingItem = itemCart.find((cartItem) => Number(cartItem.id) === item._document.data.value.mapValue.fields.id.integerValue);
-    const currId = item._document.data.value.mapValue.fields.id.integerValue; 
+    const currId = item._document.data.value.mapValue.fields.id.integerValue;
+    const existingItem = itemCart.findIndex((cartItem) => Number(cartItem.id) === Number(currId));
 
-    if (!existingItem) {
+    if (existingItem === -1) {
       // If the item with the same ID doesn't exist in itemCart, add it
       itemCart.push({
         id: currId,
@@ -650,7 +658,7 @@ btnAddTen.addEventListener('click', () => {
       });
     } else {
       // If the item with the same ID already exists, you can update the quantity, for example:
-      existingItem.quantity += 10;
+      itemCart[existingItem].quantity += 10;
     }
     const ran = document.querySelector(`[qty_id="${currId}"]`);
     const idk = document.querySelector(`[item_qty="${currId}"]`);

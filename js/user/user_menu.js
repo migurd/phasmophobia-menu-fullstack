@@ -93,9 +93,11 @@ const setNewGhosts = () => {
   let numberGenerated = 0;
   
   for(let i = 0; i < 4; i++) {
-    numberGenerated = getRandomNumber(0,9);
+    numberGenerated = getRandomNumber(0,(ghosts.length-1));
+    // avoid repeating ghosts
     if(!excludedNumber.includes(numberGenerated)) {
       excludedNumber.push(numberGenerated);
+      // console.log(ghosts);
       guesses[i].innerHTML = ghosts[numberGenerated].name;
     }
     else i--;
