@@ -29,7 +29,6 @@ const btnAll = document.querySelector('.btnAll');
 const btnClear = document.querySelector('.btnClear');
 const btnClean = document.querySelector('.btnClean');
 let itemCart = [];
-let counter = 0;
 
 // ENUM FOR ACTIVE TAB
 let activeTab = {
@@ -48,11 +47,11 @@ inventory.forEach(item => {
   <div class="item_header">
     <div class="amount_items">
       <span class="icon box"></span>
-      <p class="item_qty" value=${item.quantity} item_qty=${item.id}>${item.quantity}</p>
+      <p class="item_qty" value=${item.quantity} item_qty=${Number(item.id)}>${item.quantity}</p>
     </div>
     <div class="amount_items_loadout">
       <span class="icon truck"></span>
-      <p class="item_qty_loadout" value=${item.qty_loadout} item_qty_loadout=${item.id}>${item.qty_loadout}/4</p>
+      <p class="item_qty_loadout" value=${item.qty_loadout} item_qty_loadout=${Number(item.id)}>${item.qty_loadout}/4</p>
     </div>
   </div>
 
@@ -61,8 +60,8 @@ inventory.forEach(item => {
   </div>
 
   <div class="item_footer">
-    <button type="button" class="btnPlus" value=${item.id}>+</button>
-    <button type="button" class="btnMinus" value=${item.id}>-</button>
+    <button type="button" class="btnPlus" value=${Number(item.id)}>+</button>
+    <button type="button" class="btnMinus" value=${Number(item.id)}>-</button>
   </div>
   `;
   section_items.appendChild(newItem);
@@ -74,9 +73,9 @@ inventory.forEach(item => {
   let newShopItem = document.createElement('tr');
   newShopItem.innerHTML =
   `
-    <td qty_id="${item.id}">0</td>
+    <td qty_id="${Number(item.id)}">0</td>
     <td>${item.name}</td>
-    <td price_id=${item.id}>${item.price}</td>
+    <td price_id=${Number(item.id)}>${item.price}</td>
   `;
   aside_shop_items.appendChild(newShopItem);
   // equipment
@@ -84,7 +83,7 @@ inventory.forEach(item => {
   newEquipmentItem.innerHTML =
   `
     <td>${item.name}</td>
-    <td qty_loadout_id="${item.id}" value=${item.qty_loadout}>${item.qty_loadout}/4</td>
+    <td qty_loadout_id="${Number(item.id)}" value=${item.qty_loadout}>${item.qty_loadout}/4</td>
   `;
   aside_equipment_items.appendChild(newEquipmentItem);
 
@@ -94,10 +93,10 @@ inventory.forEach(item => {
   const btnPlus = btnsPlus[btnsPlus.length - 1]; 
   const btnsMinus = document.querySelectorAll('.btnMinus'); 
   const btnMinus = btnsMinus[btnsMinus.length - 1]; 
-  const currQty = document.querySelector(`[qty_id="${item.id}"]`);
-  const itemQty = document.querySelector(`[item_qty="${item.id}"]`);
-  const itemQtyLoadout = document.querySelector(`[item_qty_loadout="${item.id}"]`);
-  const itemIdLoadout = document.querySelector(`[qty_loadout_id="${item.id}"]`);
+  const currQty = document.querySelector(`[qty_id="${Number(item.id)}"]`);
+  const itemQty = document.querySelector(`[item_qty="${Number(item.id)}"]`);
+  const itemQtyLoadout = document.querySelector(`[item_qty_loadout="${Number(item.id)}"]`);
+  const itemIdLoadout = document.querySelector(`[qty_loadout_id="${Number(item.id)}"]`);
 
   // validations so we dont go under 0
   if(currTab === activeTab.shop && Number(currQty.innerHTML) === 0)
@@ -130,24 +129,24 @@ inventory.forEach(item => {
 
     // itemCart is updated
     // if its empty or its not found, we push
-    if(itemCart.length === 0 || !itemCart.find(e => e.id === item.id))
+    if(itemCart.length === 0 || !itemCart.find(e => Number(e.id) === Number(item.id)))
     {
       itemCart.push({
-        id: item.id,
+        id: Number(item.id),
         quantity: Number(currQty.innerHTML),
         qty_loadout: Number(itemQtyLoadout.getAttribute('value')),
       });
     }
     // its gonna be found otherwise, so we just update
     else {
-      itemCart[itemCart.findIndex(e => e.id === item.id)].quantity = Number(currQty.innerHTML);
+      itemCart[itemCart.findIndex(e => Number(e.id) === Number(item.id))].quantity = Number(currQty.innerHTML);
     }
     
     // we apply this logic if the active tab is shop
     if(currTab === activeTab.shop)
     {
       // we sum up the money to the buy btn
-      btnBuy.value = Number(btnBuy.value) + item.price;
+      btnBuy.value = Number(btnBuy.value) + Number(item.price);
       btnBuy.innerHTML = `BUY: $${Number(btnBuy.value)}`;
 
       // we sum up the money to the buy btn
@@ -178,7 +177,7 @@ inventory.forEach(item => {
         // if its empty or its not found, we push
         itemCart = [];
         itemCart.push({
-          id: item.id,
+          id: Number(item.id),
           quantity: -1, // we substract qty
           qty_loadout: 1,
         });
@@ -193,7 +192,7 @@ inventory.forEach(item => {
       }
     }
     if(currTab === activeTab.shop) {
-      const ran = document.querySelector(`[item_qty="${item.id}"]`);
+      const ran = document.querySelector(`[item_qty="${Number(item.id)}"]`);
       ran.innerHTML = Number(ran.innerHTML) + 1;
     }
   });
@@ -201,13 +200,16 @@ inventory.forEach(item => {
     
     currQty.innerHTML = Number(currQty.innerHTML) - 1;
     btnPlus.disabled = false;
-
+    
     // itemCart is updated
     // if its empty or its not found, we push
-    if(Number(currQty.innerHTML) > 0)
-      itemCart[itemCart.findIndex(e => e.id === item.id)].quantity = Number(currQty.innerHTML);
+    if(Number(currQty.innerHTML) > 0) {
+      // console.log(itemCart.findIndex(e => Number(e.id) === Number(item.id)));
+      // console.log(itemCart);
+      itemCart[itemCart.findIndex(e => Number(e.id) === Number(item.id))].quantity = Number(currQty.innerHTML);
+    }
     else
-      itemCart.splice(itemCart.findIndex(e => e.id === item.id), 1);
+      itemCart.splice(itemCart.findIndex(e => Number(e.id) === Number(item.id)), 1);
 
     // we deactivate the btns buy and sell
     if(itemCart.length === 0) {
@@ -219,7 +221,7 @@ inventory.forEach(item => {
     if(currTab === activeTab.shop)
     {
       // we substract the money to the buy btn
-      btnBuy.value = Number(btnBuy.value) - item.price;
+      btnBuy.value = Number(btnBuy.value) - Number(item.price);
       btnBuy.innerHTML = `BUY: $${Number(btnBuy.value)}`;
 
       // we substract the money to the buy btn
@@ -253,7 +255,7 @@ inventory.forEach(item => {
         // if its empty or its not found, we push
         itemCart = [];
         itemCart.push({
-          id: item.id,
+          id: Number(item.id),
           quantity: 1, // we substract qty
           qty_loadout: -1,
         });
@@ -266,12 +268,22 @@ inventory.forEach(item => {
         }
       }
     }
-
+    if(currTab === activeTab.shop) {
+      const ran = document.querySelector(`[item_qty="${Number(item.id)}"]`);
+      ran.innerHTML = Number(ran.innerHTML) - 1;
+      // console.log(ran);
+    }
+    let items = document.querySelectorAll('[qty_id]');
+    let c = 0;
+    items.forEach((item_qty) => {
+      if(Number(item_qty.innerHTML) === 0)
+        c++;
+    });
+    // we verify if all the values of the shop are 0, if they are, we reset the shop
+    if(c === items.length) {
+      cleanShop();
+    }
   });
-  if(currTab === activeTab.shop) {
-    const ran = document.querySelector(`[item_qty="${item.id}"]`);
-    ran.innerHTML = Number(ran.innerHTML) - 1;
-  }
 });
 
 // LOGIC TO UPDATE MONEY
@@ -355,7 +367,7 @@ btnBuy.addEventListener('click', async() => {
   // console.log(itemCart);
   let totalCart = 0;
   itemCart.forEach((item) => {
-    const price = Number(document.querySelector(`[price_id="${item.id}"`).innerHTML);
+    const price = Number(document.querySelector(`[price_id="${Number(item.id)}"`).innerHTML);
     totalCart += (price * item.quantity)
     item.quantity = Math.abs(item.quantity);
     item.qty_loadout = 0;
@@ -379,7 +391,7 @@ btnBuy.addEventListener('click', async() => {
     itemCart.forEach((item) => {
       document.querySelectorAll(`[item_qty]`)
         .forEach((e) => {
-          if(Number(e.getAttribute('item_qty')) === item.id) {
+          if(Number(e.getAttribute('item_qty')) === Number(item.id)) {
             e.innerHTML = item.quantity + Number(e.innerHTML);
             e.value = item.quantity + Number(e.value);
           }
@@ -398,9 +410,9 @@ btnSell.addEventListener('click', async() => {
   let sw = false; // if sw is true, there arent enough funds
 
   itemCart.forEach((item) => {
-    const price = Number(document.querySelector(`[price_id="${item.id}"`).innerHTML);
+    const price = Number(document.querySelector(`[price_id="${Number(item.id)}"`).innerHTML);
     totalCart += (Math.floor(price / 2) * item.quantity);
-    if(item.quantity > Number(document.querySelector(`[item_qty="${item.id}"`).innerHTML))
+    if(item.quantity > Number(document.querySelector(`[item_qty="${Number(item.id)}"`).innerHTML))
       sw = true;
     item.quantity = -item.quantity;
     item.qty_loadout = 0;
@@ -426,7 +438,7 @@ btnSell.addEventListener('click', async() => {
     itemCart.forEach((item) => {
       document.querySelectorAll(`[item_qty]`)
         .forEach((e) => {
-          if(Number(e.getAttribute('item_qty')) === item.id) {
+          if(Number(e.getAttribute('item_qty')) === Number(item.id)) {
             e.innerHTML = item.quantity + Number(e.innerHTML);
             e.value = item.quantity + Number(e.value);
           }
@@ -476,7 +488,7 @@ btnAll.addEventListener('click', async () => {
       {
         counter++;
         qty--;
-        if(itemCart.length === 0 || !itemCart.find(e => e.id === itemId))
+        if(itemCart.length === 0 || !itemCart.find(e => Number(e.id) === itemId))
         {
           itemCart.push({
             id: itemId,
@@ -486,8 +498,8 @@ btnAll.addEventListener('click', async () => {
         }
         // its gonna be found otherwise, so we just update
         else {
-          itemCart[itemCart.findIndex(e => e.id === itemId)].quantity = -counter;
-          itemCart[itemCart.findIndex(e => e.id === itemId)].qty_loadout = counter;
+          itemCart[itemCart.findIndex(e => Number(e.id) === itemId)].quantity = -counter;
+          itemCart[itemCart.findIndex(e => Number(e.id) === itemId)].qty_loadout = counter;
         }
       }
       // we make updates to the page related to the changes that should be done
@@ -546,7 +558,7 @@ btnClear.addEventListener('click', async() => {
       const itemId = Number(item.getAttribute('item_qty_loadout'));
 
       counter++;
-      if(itemCart.length === 0 || !itemCart.find(e => e.id === itemId))
+      if(itemCart.length === 0 || !itemCart.find(e => Number(e.id) === itemId))
       {
         itemCart.push({
           id: itemId,
@@ -556,8 +568,8 @@ btnClear.addEventListener('click', async() => {
       }
       // its gonna be found otherwise, so we just update
       else {
-        itemCart[itemCart.findIndex(e => e.id === itemId)].quantity = counter;
-        itemCart[itemCart.findIndex(e => e.id === itemId)].qty_loadout = -counter;
+        itemCart[itemCart.findIndex(e => Number(e.id) === itemId)].quantity = counter;
+        itemCart[itemCart.findIndex(e => Number(e.id) === itemId)].qty_loadout = -counter;
       }
 
       // we make updates to the page related to the changes that should be done
@@ -585,7 +597,7 @@ const btnAddTen = document.querySelector('.btnAddTen');
 btnAddOne.addEventListener('click', () => {
   itemsCollection.forEach((item) => {
     // Check if an item with the same ID already exists in debugger
-    const existingItem = itemCart.find((cartItem) => cartItem.id === item._document.data.value.mapValue.fields.id.integerValue);
+    const existingItem = itemCart.find((cartItem) => Number(cartItem.id) === item._document.data.value.mapValue.fields.id.integerValue);
     const currId = item._document.data.value.mapValue.fields.id.integerValue; 
 
     if (!existingItem) {
@@ -597,7 +609,7 @@ btnAddOne.addEventListener('click', () => {
       });
     } else {
       // If the item with the same ID already exists, you can update the quantity, for example:
-      existingItem.qty += 1;
+      existingItem.quantity += 1;
     }
     const ran = document.querySelector(`[qty_id="${currId}"]`);
     const idk = document.querySelector(`[item_qty="${currId}"]`);
@@ -612,13 +624,11 @@ btnAddOne.addEventListener('click', () => {
     // we sum up the money to the buy btn
     const price = item._document.data.value.mapValue.fields.price.integerValue;
     
+    btnBuy.value = Number(btnBuy.value) + Number(price);
+    btnBuy.innerHTML = `BUY: $${Number(btnBuy.value)}`;
     // we sum up the money to the buy btn
     btnSell.value = Number(btnSell.value) + Math.floor(price / 2);
     btnSell.innerHTML = `SELL: $${Number(btnSell.value)}`;
-
-
-    btnBuy.value = Number(btnSell)*2;
-    btnBuy.innerHTML = `BUY: $${Number(btnSell.value)*2}`;
 
     idk.innerHTML = Number(idk.innerHTML) + 1;
 
@@ -628,7 +638,7 @@ btnAddOne.addEventListener('click', () => {
 btnAddTen.addEventListener('click', () => {
   itemsCollection.forEach((item) => {
     // Check if an item with the same ID already exists in itemCart
-    const existingItem = itemCart.find((cartItem) => cartItem.id === item._document.data.value.mapValue.fields.id.integerValue);
+    const existingItem = itemCart.find((cartItem) => Number(cartItem.id) === item._document.data.value.mapValue.fields.id.integerValue);
     const currId = item._document.data.value.mapValue.fields.id.integerValue; 
 
     if (!existingItem) {
@@ -640,7 +650,7 @@ btnAddTen.addEventListener('click', () => {
       });
     } else {
       // If the item with the same ID already exists, you can update the quantity, for example:
-      existingItem.qty += 10;
+      existingItem.quantity += 10;
     }
     const ran = document.querySelector(`[qty_id="${currId}"]`);
     const idk = document.querySelector(`[item_qty="${currId}"]`);
@@ -656,12 +666,11 @@ btnAddTen.addEventListener('click', () => {
     const price = item._document.data.value.mapValue.fields.price.integerValue;
     
     // we sum up the money to the buy btn
-    btnSell.value = Number(btnSell.value) + (Math.floor(price / 2)*10);
+    btnBuy.value = Number(btnBuy.value) + Number(price) * 10;
+    btnBuy.innerHTML = `BUY: $${Number(btnBuy.value)}`;
+    // we sum up the money to the buy btn
+    btnSell.value = Number(btnSell.value) + Math.floor(price / 2) * 10;
     btnSell.innerHTML = `SELL: $${Number(btnSell.value)}`;
-
-
-    btnBuy.value = Number(btnSell)*2;
-    btnBuy.innerHTML = `BUY: $${Number(btnSell.value)*2}`;
 
     idk.innerHTML = Number(idk.innerHTML) + 10;
     // console.log(itemCart);
